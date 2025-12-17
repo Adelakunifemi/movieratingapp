@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ title, description, posterURL, rating }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/movie/${title}`);
+  };
+
   return (
-    <div className="movie-card">
-      <img 
-        src={posterURL} 
+    <div className="movie-card" onClick={handleClick} style={{ cursor: 'pointer' }}>
+      <img
+        src={posterURL}
         alt={title}
         className="movie-poster"
       />
